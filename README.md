@@ -23,15 +23,19 @@ bash <(curl -s https://raw.githubusercontent.com/jsivilli/dotfiles/main/remote-b
 
 ## ⚠️  Requires git. If not installed:
 
-sudo yum install git   # Amazon Linux / RHEL
-sudo apt install git   # Debian / Ubuntu
-sudo dnf install git   # Fedora
+```bash
+sudo yum install git
+sudo apt install git
+sudo dnf install git
+```
 
 ## Manual Install (if preferred)
 
+```bash
 git clone https://github.com/jsivilli/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./bootstrap.sh
+```
 
 ## Notes
 
