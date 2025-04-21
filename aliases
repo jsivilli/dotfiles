@@ -1,0 +1,6 @@
+alias ll="ls -alF"
+alias gs="git status"
+alias gc="git commit"
+alias gl="git pull"
+alias ..="cd .."
+alias ...="cd ../.."

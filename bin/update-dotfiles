@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+cd "$HOME/git/dotfiles" || exit 1
+echo "🔄 Pulling latest dotfiles..."
+git pull --rebase
+
+echo "🔧 Re-installing dotfiles..."
+./install.sh
+
+echo "✅ Dotfiles updated!"
