@@ -47,10 +47,32 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 # Linux setup
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  echo "🐧 Detected Linux — skipping Homebrew"
-  echo "📦 Installing core packages via apt..."
-  sudo apt update
-  sudo apt install -y git curl vim
+  echo "🐧 Detected Linux — checking for core packages..."
+
+  # Detect package manager
+  if command -v apt &>/dev/null; then
+    PM="sudo apt install -y"
+  elif command -v dnf &>/dev/null; then
+    PM="sudo dnf install -y"
+  elif command -v yum &>/dev/null; then
+    PM="sudo yum install -y"
+  else
+    echo "❌ Unsupported package manager"
+    exit 1
+  fi
+
+  # List of required packages
+  REQUIRED_PKGS=(zsh curl git vim tmux htop watch)
+
+  for pkg in "${REQUIRED_PKGS[@]}"; do
+    if ! command -v $pkg &>/dev/null; then
+      echo "📦 Installing $pkg..."
+      $PM $pkg
+    else
+      echo "✅ $pkg already installed"
+    fi
+  done
+
 else
   echo "⚠️ Unknown OS type: $OSTYPE — skipping package installs"
 fi
@@ -60,5 +82,5 @@ echo "🚀 Running install.sh..."
 chmod +x "$INSTALL_SCRIPT"
 ./"$INSTALL_SCRIPT"
 
-echo "🎉 Done! Open a new terminal or run: source ~/.zshrc (or ~/.bashrc)"
+echo "🎉 Dotfiles installed! Run 'exec zsh' to enter your new shell."
 
