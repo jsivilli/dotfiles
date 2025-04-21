@@ -1,10 +1,10 @@
-DOTFILES="$HOME/git/dotfiles"
+DOTFILES="$HOME/.dotfiles"
 
 # Shared aliases
 [ -f "$DOTFILES/aliases" ] && source "$DOTFILES/aliases"
 
 # Custom bin path
-export PATH="$HOME/git/dotfiles/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$PATH"
 
 # OS detection
 case "$OSTYPE" in

@@ -1,5 +1,5 @@
 # Source shared files
-DOTFILES="$HOME/git/dotfiles"
+DOTFILES="$HOME/.dotfiles"
 [ -f "$DOTFILES/aliases" ] && source "$DOTFILES/aliases"
 [ -f "$DOTFILES/bashrc" ] && source "$DOTFILES/bashrc"
 
@@ -31,4 +31,5 @@ else
 fi
 
 # Add bin path
-export PATH="$HOME/git/dotfiles/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$PATH"
+
