@@ -2,7 +2,7 @@
 set -e
 
 REPO="https://github.com/jsivilli/dotfiles.git"
-CLONE_DIR="$HOME/git/dotfiles"
+CLONE_DIR="$HOME/.dotfiles"
 INSTALL_SCRIPT="install.sh"
 
 echo "🧼 Bootstrapping dotfiles for jsivilli..."
