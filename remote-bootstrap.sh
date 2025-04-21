@@ -6,23 +6,14 @@ CLONE_DIR="$HOME/.dotfiles"
 
 echo "📦 Bootstrapping dotfiles from $REPO..."
 
-# 🧪 Ensure git is installed before cloning
+# Check for git, but don't install it
 if ! command -v git &>/dev/null; then
-  echo "🛠 git not found — attempting to install..."
-
-  if command -v apt &>/dev/null; then
-    sudo apt update && sudo apt install -y git
-  elif command -v dnf &>/dev/null; then
-    sudo dnf install -y git
-  elif command -v yum &>/dev/null; then
-    sudo yum install -y git
-  else
-    echo "❌ No supported package manager found. Please install git manually."
-    exit 1
-  fi
+  echo "❌ 'git' is required but not installed."
+  echo "➡️  Please install git manually (e.g. 'sudo apt install git' or 'sudo yum install git')"
+  exit 1
 fi
 
-# Clone dotfiles if missing
+# Clone dotfiles repo if it doesn't exist
 if [ ! -d "$CLONE_DIR" ]; then
   echo "📁 Cloning dotfiles to $CLONE_DIR..."
   git clone "$REPO" "$CLONE_DIR"
@@ -32,7 +23,7 @@ fi
 
 cd "$CLONE_DIR"
 
-# Run bootstrap
+# Run the internal bootstrap
 echo "🚀 Running internal bootstrap.sh..."
 chmod +x bootstrap.sh
 ./bootstrap.sh
