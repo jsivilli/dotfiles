@@ -21,18 +21,23 @@ cd "$CLONE_DIR"
 # macOS setup
 if [[ "$OSTYPE" == "darwin"* ]]; then
   echo "🍎 Detected macOS — checking for Homebrew..."
+
   if ! command -v brew &>/dev/null; then
     echo "🔧 Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-    # Add Homebrew to PATH
-    BREW_PREFIX="/opt/homebrew"
-    echo "🛠 Adding Homebrew to PATH..."
-    echo 'eval "$('"$BREW_PREFIX"'/bin/brew shellenv)"' >> "$HOME/.zprofile"
-    eval "$("$BREW_PREFIX"/bin/brew shellenv)"
   else
     echo "✅ Homebrew already installed"
   fi
+
+  # Fix PATH (especially for Apple Silicon)
+  BREW_PREFIX="$(/opt/homebrew/bin/brew --prefix 2>/dev/null || echo "/opt/homebrew")"
+  if [ -d "$BREW_PREFIX" ]; then
+    echo "🛠 Adding Homebrew to PATH..."
+    echo 'eval "$('"$BREW_PREFIX"'/bin/brew shellenv)"' >> "$HOME/.zprofile"
+    eval "$("$BREW_PREFIX"/bin/brew shellenv)"
+  fi
+
+  echo "✅ Homebrew location: $(which brew)"
 
   # Install from Brewfile
   if [ -f Brewfile ]; then
