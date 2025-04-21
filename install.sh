@@ -1,28 +1,28 @@
 #!/usr/bin/env bash
-
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-link_file() {
+backup_and_link() {
   src="$1"
   dest="$HOME/.$2"
   if [ -e "$dest" ] && [ ! -L "$dest" ]; then
-    echo "⚠️  Skipping $dest (already exists and is not a symlink)"
-  else
-    ln -sf "$DOTFILES_DIR/$src" "$dest"
-    echo "✅ Linked $src -> $dest"
+    echo "🗂 Backing up $dest to $dest.backup"
+    mv "$dest" "$dest.backup"
   fi
+  ln -sf "$DOTFILES_DIR/$src" "$dest"
+  echo "✅ Linked $src -> $dest"
 }
 
 echo "🔧 Installing dotfiles..."
 
-link_file "zshrc" "zshrc"
-link_file "bashrc" "bashrc"
-link_file "vimrc" "vimrc"
-link_file "aliases" "aliases"
-link_file "tmux.conf" "tmux.conf"
-link_file "bash_profile" "bash_profile"
-link_file "profile" "profile"
+backup_and_link "zshrc" "zshrc"
+backup_and_link "bashrc" "bashrc"
+backup_and_link "vimrc" "vimrc"
+backup_and_link "aliases" "aliases"
+backup_and_link "tmux.conf" "tmux.conf"
+backup_and_link "bash_profile" "bash_profile"
+backup_and_link "profile" "profile"
 
 echo "🎉 Done!"
+

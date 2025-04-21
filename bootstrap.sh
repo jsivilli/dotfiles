@@ -84,3 +84,4 @@ chmod +x "$INSTALL_SCRIPT"
 
 echo "🎉 Dotfiles installed! Run 'exec zsh' to enter your new shell."
 
+
