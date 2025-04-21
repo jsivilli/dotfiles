@@ -19,6 +19,7 @@ Various dotfiles I use — portable across macOS and Linux.
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/jsivilli/dotfiles/main/remote-bootstrap.sh)
+```
 
 ## ⚠️  Requires git. If not installed:
 
