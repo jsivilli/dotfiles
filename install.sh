@@ -22,5 +22,7 @@ link_file "bashrc" "bashrc"
 link_file "vimrc" "vimrc"
 link_file "aliases" "aliases"
 link_file "tmux.conf" "tmux.conf"
+link_file "bash_profile" "bash_profile"
+link_file "profile" "profile"
 
 echo "🎉 Done!"
