@@ -33,3 +33,4 @@ fi
 # Add bin path
 export PATH="$HOME/.dotfiles/bin:$PATH"
 
+

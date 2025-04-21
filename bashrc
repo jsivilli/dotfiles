@@ -12,3 +12,4 @@ case "$OSTYPE" in
   linux*)  export OS="Linux" ;;
   *)       export OS="Unknown" ;;
 esac
+

@@ -24,5 +24,7 @@ backup_and_link "tmux.conf" "tmux.conf"
 backup_and_link "bash_profile" "bash_profile"
 backup_and_link "profile" "profile"
 
-echo "🎉 Done!"
+echo
+echo "🎉 Dotfiles installed successfully!"
+echo "💡 Run 'exec zsh' to reload your shell."
 

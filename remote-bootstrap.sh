@@ -6,7 +6,7 @@ CLONE_DIR="$HOME/.dotfiles"
 
 echo "📦 Bootstrapping dotfiles from $REPO..."
 
-# Check for git, but don't install it
+# Check for git, but don't auto-install
 if ! command -v git &>/dev/null; then
   echo "❌ 'git' is required but not installed."
   echo "➡️  Please install git manually (e.g. 'sudo apt install git' or 'sudo yum install git')"

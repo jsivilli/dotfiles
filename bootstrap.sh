@@ -49,7 +49,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   echo "🐧 Detected Linux — checking for core packages..."
 
-  # Detect package manager
   if command -v apt &>/dev/null; then
     PM="sudo apt install -y"
   elif command -v dnf &>/dev/null; then
@@ -61,7 +60,6 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     exit 1
   fi
 
-  # List of required packages
   REQUIRED_PKGS=(zsh curl git vim tmux htop watch)
 
   for pkg in "${REQUIRED_PKGS[@]}"; do
@@ -81,7 +79,4 @@ fi
 echo "🚀 Running install.sh..."
 chmod +x "$INSTALL_SCRIPT"
 ./"$INSTALL_SCRIPT"
-
-echo "🎉 Dotfiles installed! Run 'exec zsh' to enter your new shell."
-
 
