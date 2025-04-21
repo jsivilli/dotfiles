@@ -6,11 +6,20 @@ CLONE_DIR="$HOME/.dotfiles"
 
 echo "📦 Bootstrapping dotfiles from $REPO..."
 
-# Check for git, but don't auto-install
+# 🧪 Ensure git is installed before cloning
 if ! command -v git &>/dev/null; then
-  echo "❌ 'git' is required but not installed."
-  echo "➡️  Please install git manually (e.g. 'sudo apt install git' or 'sudo yum install git')"
-  exit 1
+  echo "🛠 git not found — attempting to install..."
+
+  if command -v apt &>/dev/null; then
+    sudo apt update && sudo apt install -y git
+  elif command -v dnf &>/dev/null; then
+    sudo dnf install -y git
+  elif command -v yum &>/dev/null; then
+    sudo yum install -y git
+  else
+    echo "❌ No supported package manager found. Please install git manually."
+    exit 1
+  fi
 fi
 
 # Clone dotfiles repo if it doesn't exist
