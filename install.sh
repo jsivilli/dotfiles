@@ -21,5 +21,6 @@ link_file "zshrc" "zshrc"
 link_file "bashrc" "bashrc"
 link_file "vimrc" "vimrc"
 link_file "aliases" "aliases"
+link_file "tmux.conf" "tmux.conf"
 
 echo "🎉 Done!"
