@@ -10,6 +10,8 @@ echo "📦 Bootstrapping dotfiles from $REPO..."
 if [ ! -d "$CLONE_DIR" ]; then
   echo "📁 Cloning dotfiles to $CLONE_DIR..."
   git clone "$REPO" "$CLONE_DIR"
+else
+  echo "✅ Dotfiles already cloned at $CLONE_DIR"
 fi
 
 cd "$CLONE_DIR"
