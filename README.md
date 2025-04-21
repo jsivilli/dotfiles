@@ -1,6 +1,6 @@
-# dotfiles
+# my dotfiles
 
-Verious dotfiles I use — portable across macOS and Linux.
+Various dotfiles I use — portable across macOS and Linux.
 
 ## Features
 
@@ -17,9 +17,10 @@ Verious dotfiles I use — portable across macOS and Linux.
 
 ## Quick Install
 
+```bash
 bash <(curl -s https://raw.githubusercontent.com/jsivilli/dotfiles/main/remote-bootstrap.sh)
 
-## ⚠️ Requires git. If not installed:
+## ⚠️  Requires git. If not installed:
 
 sudo yum install git   # Amazon Linux / RHEL
 sudo apt install git   # Debian / Ubuntu
