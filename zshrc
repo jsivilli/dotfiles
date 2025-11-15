@@ -49,7 +49,6 @@ RPROMPT="${return_code}"
 setopt AUTO_PUSHD          # Automatically push the old directory onto the stack when using 'cd'.
 setopt PUSHD_IGNORE_DUPS   # Do not store duplicate entries in the directory stack.
 setopt PUSHD_SILENT        # Do not display the directory stack after using 'pushd' or 'popd'.
-setopt CORRECT            # Attempt to correct the spelling of commands.
 
 #===============================================================================
 # HISTORY SETTINGS
